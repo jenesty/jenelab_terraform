@@ -1,0 +1,17 @@
+resource "aws_instance" "Web" {
+  depends_on = [
+    "aws_vpc.hands-on-vpc"
+  ]
+  count = "${lookup(var.web_settings, "ec2_count")}"
+  ami = "${lookup(var.web_settings, "ami_id")}"
+  instance_type = "${lookup(var.web_settings, "ec2_type")}"
+  vpc_security_group_ids = [
+    "${aws_security_group.Web-SG.id}"
+  ]
+  key_name = "${var.key_pair}"
+  subnet_id = "${element(aws_subnet.public.*.id, count.index % var.subnet_length)}"
+  ephemeral_block_device = {
+    device_name = "/dev/xvdb"
+    virtual_name = "ephemeral0"
+  }
+}
