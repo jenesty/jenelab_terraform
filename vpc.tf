@@ -1,7 +1,7 @@
 resource "aws_vpc" "hands-on-vpc" {
-  cidr_block           = "${var.cidr}"
-  enable_dns_hostnames = "${var.enable_dns_hostnames}"
-  enable_dns_support   = "${var.enable_dns_support}"
+  cidr_block           = "${lookup(var.vpc_settings, "cidr")}"
+  enable_dns_hostnames = "${lookup(var.vpc_settings, "enable_dns_hostnames")}"
+  enable_dns_support   = "${lookup(var.vpc_settings, "enable_dns_support")}"
 }
 
 resource "aws_internet_gateway" "hands-on-vpc" {
@@ -10,7 +10,6 @@ resource "aws_internet_gateway" "hands-on-vpc" {
 
 resource "aws_route_table" "public" {
   vpc_id           = "${aws_vpc.hands-on-vpc.id}"
-  propagating_vgws = ["${var.public_propagating_vgws}"]
 }
 
 resource "aws_route" "public_internet_gateway" {
@@ -22,8 +21,8 @@ resource "aws_route" "public_internet_gateway" {
 resource "aws_subnet" "public" {
   count = "${var.subnet_length}"
   vpc_id  = "${aws_vpc.hands-on-vpc.id}"
-  cidr_block = "${var.vpc_cidr_16}.${count.index + 1}.0/24"
-  map_public_ip_on_launch = true
+  cidr_block = "${lookup(var.subnet_settings, "subnet_cidr_16")}.${count.index + 1}.0/24"
+  map_public_ip_on_launch = "${lookup(var.subnet_settings, "map_public_ip_on_launch")}"
   availability_zone = "${element(split(",", var.az_list), count.index)}"
 }
 
