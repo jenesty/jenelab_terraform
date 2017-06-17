@@ -1,7 +1,7 @@
 resource "aws_vpc" "hands-on-vpc" {
-  cidr_block           = "${lookup(var.vpc_settings, "cidr")}"
-  enable_dns_hostnames = "${lookup(var.vpc_settings, "enable_dns_hostnames")}"
-  enable_dns_support   = "${lookup(var.vpc_settings, "enable_dns_support")}"
+  cidr_block  = "${lookup(var.vpc_settings, "cidr")}"
+  enable_dns_hostnames  = "${lookup(var.vpc_settings, "enable_dns_hostnames")}"
+  enable_dns_support  = "${lookup(var.vpc_settings, "enable_dns_support")}"
 }
 
 resource "aws_internet_gateway" "hands-on-vpc" {
@@ -9,13 +9,13 @@ resource "aws_internet_gateway" "hands-on-vpc" {
 }
 
 resource "aws_route_table" "public" {
-  vpc_id           = "${aws_vpc.hands-on-vpc.id}"
+  vpc_id  = "${aws_vpc.hands-on-vpc.id}"
 }
 
 resource "aws_route" "public_internet_gateway" {
-  route_table_id         = "${aws_route_table.public.id}"
+  route_table_id  = "${aws_route_table.public.id}"
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = "${aws_internet_gateway.hands-on-vpc.id}"
+  gateway_id  = "${aws_internet_gateway.hands-on-vpc.id}"
 }
 
 resource "aws_subnet" "public" {
