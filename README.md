@@ -3,6 +3,17 @@
 Terraform v0.9.4で作成しています。
 事前にTerraform v0.9.4をインストールしてください。
 
+### 事前準備
+* 事前にAWSのアクセスキー、シークレットキーを設定してください。
+* クレデンシャル(~/.aws/credentials)を設定してください。
+```
+設定例)
+[default]
+aws_access_key_id = ***
+aws_secret_access_key = ***
+region = ap-northeast-1
+```
+
 ### Terraformインストール(Mac)
 ```
 $ brew install tfenv
@@ -23,3 +34,6 @@ $ terraform apply
 terraformで作成したリソースの削除
 $ terraform destroy
 ```
+
+### 注意
+destroyする際は
