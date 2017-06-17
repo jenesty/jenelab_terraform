@@ -36,4 +36,5 @@ $ terraform destroy
 ```
 
 ### 注意
-destroyする際は
+terraform destroyを実行するとAWS上のリソースが削除されます。
+確認の上、実行してください。
