@@ -14,12 +14,12 @@ $ tfenv use 0.9.4
 ```
 $ cd /path/to/the/terraform_dir
 
-# terraformのテスト実行
+terraformのテスト実行
 $ terraform plan
 
-# terraformの適用
+terraformの適用
 $ terraform apply
 
-# terraformで作成したリソースの削除
+terraformで作成したリソースの削除
 $ terraform destroy
 ```
