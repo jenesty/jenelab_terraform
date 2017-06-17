@@ -25,4 +25,8 @@ resource "aws_elb" "hands-on-ELB" {
     idle_timeout = 400
     connection_draining = true
     connection_draining_timeout = 400
+    tags {
+        Role = "ELB"
+        Env= "Development"
+    }
 }
