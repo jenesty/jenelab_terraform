@@ -10,8 +10,4 @@ resource "aws_instance" "Web" {
   ]
   key_name = "${var.key_pair}"
   subnet_id = "${element(aws_subnet.public.*.id, count.index % var.subnet_length)}"
-  ephemeral_block_device = {
-    device_name = "/dev/xvdb"
-    virtual_name = "ephemeral0"
-  }
 }
