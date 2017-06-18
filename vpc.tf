@@ -24,6 +24,9 @@ resource "aws_subnet" "public" {
   cidr_block = "${lookup(var.subnet_settings, "subnet_cidr_16")}.${count.index + 1}.0/24"
   map_public_ip_on_launch = "${lookup(var.subnet_settings, "map_public_ip_on_launch")}"
   availability_zone = "${element(split(",", var.az_list), count.index)}"
+  tags {
+    Name = "Public Subnet"
+  }
 }
 
 resource "aws_route_table_association" "public" {
