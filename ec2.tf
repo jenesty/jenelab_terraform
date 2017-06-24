@@ -15,3 +15,9 @@ resource "aws_instance" "Web" {
     Env= "Development"
   }
 }
+
+resource "aws_eip" "Web" {
+    count = "${lookup(var.web_settings, "ec2_count")}"
+    instance = "${element(aws_instance.Web.*.id, count.index)}"
+    vpc = true
+}
