@@ -13,6 +13,20 @@ aws_access_key_id = ***
 aws_secret_access_key = ***
 region = ap-northeast-1
 ```
+* 事前に起動させたいAMIを作成し、variables.tfに設定してください。
+```
+#
+# ec2
+#
+variable "web_settings" {
+  type = "map"
+  default = {
+    ec2_count = "2"
+    ec2_type = "t2.micro"
+    ami_id = "ここに設定する"
+  }
+}
+```
 
 ### Terraformインストール(Mac)
 ```
