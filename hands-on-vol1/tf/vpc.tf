@@ -2,6 +2,9 @@ resource "aws_vpc" "hands-on-vpc" {
   cidr_block  = "${lookup(var.vpc_settings, "cidr")}"
   enable_dns_hostnames  = "${lookup(var.vpc_settings, "enable_dns_hostnames")}"
   enable_dns_support  = "${lookup(var.vpc_settings, "enable_dns_support")}"
+  tags {
+    Name = "hands-on-vpc"
+  }
 }
 
 resource "aws_internet_gateway" "hands-on-vpc" {

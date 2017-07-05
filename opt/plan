@@ -1,0 +1,5 @@
+#!/bin/bash
+
+APP_NAME=$1
+COMMAND_NAME=plan
+. `dirname ${0}`/terraform.sh
