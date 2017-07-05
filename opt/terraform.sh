@@ -27,7 +27,7 @@ TF_DIR=./${APP_NAME}/tf
 
 ## 一時ディレクトリ作成
 mkdir -p ${TMP_DIR}
-rm -f ${TMP_DIR}/*
+#rm -f ${TMP_DIR}/*
 
 ## 一時ディレクトリにtfファイルをcopy
 cp -p ${TF_DIR}/*tf ${TMP_DIR}
@@ -60,6 +60,3 @@ terraform ${COMMAND_NAME} \
 
 ## 元のディレクトリに戻る
 cd -
-
-## 一時ディレクトリ削除
-rm -rf ${TMP_DIR}
