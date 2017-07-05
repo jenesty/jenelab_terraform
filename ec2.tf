@@ -12,7 +12,8 @@ resource "aws_instance" "Web" {
   subnet_id = "${element(aws_subnet.public.*.id, count.index % var.subnet_length)}"
   tags {
     Role = "Web"
-    Env= "Development"
+    Env = "Development"
+    Name = "Web Server"
   }
 }
 
