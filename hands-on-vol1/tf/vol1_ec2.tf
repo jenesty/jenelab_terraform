@@ -9,7 +9,7 @@ resource "aws_instance" "Web" {
     "${aws_security_group.Web-SG.id}"
   ]
   key_name = "${var.key_pair}"
-  subnet_id = "${element(aws_subnet.public.*.id, count.index % var.subnet_length)}"
+  subnet_id = "${element(aws_subnet.public.*.id, count.index % var.private_subnet_length)}"
   tags {
     Role = "Web"
     Env = "Development"

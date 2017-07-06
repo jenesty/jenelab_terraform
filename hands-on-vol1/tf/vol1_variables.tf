@@ -17,7 +17,7 @@ variable "vpc_settings" {
 #
 # subnet
 #
-variable "subnet_length" {
+variable "private_subnet_length" {
   default = "2"
 }
 
