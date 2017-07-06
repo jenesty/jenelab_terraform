@@ -47,7 +47,7 @@ then
 
   case $ANSWER in
     "" | "Y" | "y" | "yes" | "Yes" | "YES" ) 
-      echo "Run terraform destroy";;
+      exit 0 ;;
     * )
       exit 1 ;;
   esac
