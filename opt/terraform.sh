@@ -23,14 +23,14 @@ set -u
 ## 変数定義
 ROOT_DIR=.
 TMP_DIR=${ROOT_DIR}/_tmp
-TF_DIR=./${APP_NAME}/tf
+APP_NAME_PRE=hands-on-vol
 
 ## 一時ディレクトリ作成
 mkdir -p ${TMP_DIR}
-#rm -f ${TMP_DIR}/*
+rm -f ${TMP_DIR}/*
 
 ## 一時ディレクトリにtfファイルをcopy
-cp -p ${TF_DIR}/*tf ${TMP_DIR}
+cp -p ${APP_NAME_PRE}[1-9]/tf/* ${TMP_DIR}
 cd ${TMP_DIR}
 
 ## terrform init
@@ -60,3 +60,5 @@ terraform ${COMMAND_NAME} \
 
 ## 元のディレクトリに戻る
 cd -
+
+rm -rf ${TMP_DIR}
