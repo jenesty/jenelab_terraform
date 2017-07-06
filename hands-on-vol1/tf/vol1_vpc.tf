@@ -24,8 +24,8 @@ resource "aws_route" "public_internet_gateway" {
 resource "aws_subnet" "public" {
   count = "${var.subnet_length}"
   vpc_id  = "${aws_vpc.hands-on-vpc.id}"
-  cidr_block = "${lookup(var.subnet_settings, "subnet_cidr_16")}.${count.index + 1}.0/24"
-  map_public_ip_on_launch = "${lookup(var.subnet_settings, "map_public_ip_on_launch")}"
+  cidr_block = "${lookup(var.public_subnet_settings, "subnet_cidr_16")}.${count.index + 1}.0/24"
+  map_public_ip_on_launch = "${lookup(var.public_subnet_settings, "map_public_ip_on_launch")}"
   availability_zone = "${element(split(",", var.az_list), count.index)}"
   tags {
     Name = "Public Subnet"

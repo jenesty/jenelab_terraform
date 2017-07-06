@@ -25,7 +25,7 @@ variable "az_list" {
     default = "ap-northeast-1a,ap-northeast-1c"
 }
 
-variable "subnet_settings" {
+variable "public_subnet_settings" {
   type = "map"
   default = {
     subnet_cidr_16 = "10.0"
