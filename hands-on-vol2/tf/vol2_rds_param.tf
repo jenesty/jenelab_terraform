@@ -1,4 +1,4 @@
-resource "aws_db_parameter_group" "wordpress" {
+resource "aws_db_parameter_group" "wordpress-pg" {
   name   = "wordpress-pg"
   family = "mariadb10.0"
 
