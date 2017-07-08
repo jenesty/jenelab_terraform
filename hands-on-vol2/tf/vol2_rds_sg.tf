@@ -5,7 +5,7 @@ resource "aws_security_group" "RDS-SG" {
     protocol = "tcp"
     from_port = 3306
     to_port = 3306
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["10.0.0.0/16"]
     # cidr_blocks = [
     #   "${aws_security_group.Web-SG.id}"
     # ]
