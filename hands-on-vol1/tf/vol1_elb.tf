@@ -30,3 +30,7 @@ resource "aws_elb" "hands-on-ELB" {
         Env= "Development"
     }
 }
+
+output "elb.hostname" {
+  value = "${aws_elb.hands-on-ELB.dns_name}"
+}
