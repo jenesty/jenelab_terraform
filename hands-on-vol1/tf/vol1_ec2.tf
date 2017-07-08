@@ -10,6 +10,7 @@ resource "aws_instance" "Web" {
   ]
   key_name = "${var.key_pair}"
   subnet_id = "${element(aws_subnet.public.*.id, count.index % var.private_subnet_length)}"
+  user_data = "${file("vol1_web_userdata.sh")}"
   tags {
     Role = "Web"
     Env = "Development"
