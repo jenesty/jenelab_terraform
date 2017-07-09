@@ -6,7 +6,7 @@ resource "aws_db_instance" "wordpress-instance" {
     instance_class = "${lookup(var.rds_settings, "instance_class")}"
     name = "${lookup(var.rds_settings, "database_name")}"
     username = "${lookup(var.rds_settings, "db_username")}"
-    password = "${lookup(var.rds_settings, "db_password")}"
+    password = "${random_id.rds_password.b64}"
     db_subnet_group_name = "${aws_db_subnet_group.wordpress.name}"
     vpc_security_group_ids = ["${aws_security_group.RDS-SG.id}"]
     parameter_group_name = "${aws_db_parameter_group.wordpress-pg.name}"

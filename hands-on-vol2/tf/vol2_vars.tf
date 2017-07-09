@@ -21,7 +21,13 @@ variable "rds_settings" {
   default = {
     instance_class = "db.t2.micro"
     database_name = "wordpress"
-    db_password = "password"
     db_username = "wordpress"
   }
+}
+
+#
+# Password
+#
+variable "password_length" {
+  default = "10"
 }
