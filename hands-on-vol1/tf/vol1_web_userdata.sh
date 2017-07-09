@@ -3,7 +3,7 @@ cd /tmp
 sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
 
 # パッケージインストール
-sudo yum install -y httpd php php-devel php-mysql php-mbstring php-gd
+sudo yum install -y httpd php php-devel php-mysql php-mbstring php-gd mysql
 
 # apacheの設定変更
 sudo sed -i -e 's/ServerTokens OS/ServerTokens Prod/' /etc/httpd/conf/httpd.conf
