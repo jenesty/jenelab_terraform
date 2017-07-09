@@ -30,7 +30,13 @@ mkdir -p ${TMP_DIR}
 rm -f ${TMP_DIR}/*
 
 ## 一時ディレクトリにtfファイルをcopy
-cp -p ${APP_NAME_PRE}[1-9]/tf/* ${TMP_DIR}
+VOL_NUMBER=${APP_NAME: -1}
+while [ ${VOL_NUMBER} -gt 0 ]
+do
+  cp -p ${APP_NAME_PRE}${VOL_NUMBER}/tf/* ${TMP_DIR}
+  VOL_NUMBER=$(expr $VOL_NUMBER - 1)
+done
+
 cd ${TMP_DIR}
 
 ## terrform init
@@ -61,4 +67,4 @@ terraform ${COMMAND_NAME} \
 ## 元のディレクトリに戻る
 cd -
 
-rm -rf ${TMP_DIR}
+#rm -rf ${TMP_DIR}
