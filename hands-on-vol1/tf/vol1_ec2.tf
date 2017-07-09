@@ -23,3 +23,11 @@ resource "aws_eip" "Web" {
     instance = "${element(aws_instance.Web.*.id, count.index)}"
     vpc = true
 }
+
+output "Web.0.ip" {
+  value = "${aws_instance.Web.0.public_ip}"
+}
+
+output "Web.1.ip" {
+  value = "${aws_instance.Web.1.public_ip}"
+}
