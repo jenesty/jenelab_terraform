@@ -67,4 +67,4 @@ terraform ${COMMAND_NAME} \
 ## 元のディレクトリに戻る
 cd -
 
-#rm -rf ${TMP_DIR}
+rm -rf ${TMP_DIR}
