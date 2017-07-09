@@ -53,7 +53,7 @@ then
 
   case $ANSWER in
     "" | "Y" | "y" | "yes" | "Yes" | "YES" ) 
-      exit 0 ;;
+      : ;;
     * )
       exit 1 ;;
   esac
