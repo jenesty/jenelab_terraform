@@ -19,13 +19,13 @@ region = ap-northeast-1
 * 変数の設定は、hands-on-vol*/tf/配下にあるvariables.tfを変更します。
 
 ```
-# 事前に起動させたいAMIを作成し、variables.tfに設定してください。AMIにはApacheがインストールされていることが前提です。
+# 事前に起動させたいAMIを作成し、variables.tfに設定してください。
 variable "web_settings" {
   type = "map"
   default = {
-    ec2_count = "2"
-    ec2_type = "t2.micro"
-    ami_id = "ここに設定する"
+    ec2_count = "2" #起動するインスタンス数
+    ec2_type = "t2.micro" #起動するインスタンスタイプ 
+    ami_id = "ここに設定する" #起動するAMI
   }
 }
 

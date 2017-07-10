@@ -1,3 +1,7 @@
+resource "template_file" "user_data_web" {
+  template = "${file("vol1_web_userdata.tpl")}"
+}
+
 resource "aws_instance" "Web" {
   depends_on = [
     "aws_vpc.hands-on-vpc"
@@ -10,6 +14,7 @@ resource "aws_instance" "Web" {
   ]
   key_name = "${var.key_pair}"
   subnet_id = "${element(aws_subnet.public.*.id, count.index % var.public_subnet_length)}"
+  user_data = "${template_file.user_data_web.rendered}"
   tags {
     Role = "Web"
     Env = "Development"
