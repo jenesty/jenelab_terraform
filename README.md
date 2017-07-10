@@ -17,9 +17,10 @@ region = ap-northeast-1
 
 ### varsの設定
 * 変数の設定は、hands-on-vol*/tf/配下にあるvariables.tfを変更します。
+* 以下の設定を実施しないとterraformが失敗します。"必ず"設定してください。
 
 ```
-# 事前に起動させたいAMIを作成し、variables.tfに設定してください。
+# 起動したいAmazon Linuxで作成したAMIを指定
 variable "web_settings" {
   type = "map"
   default = {
@@ -29,7 +30,7 @@ variable "web_settings" {
   }
 }
 
-# 事前にキーペア事前を作成し、variables.tfに設定してください。
+# 事前にキーペア事前を作成し、指定
 variable "key_pair" {
   default = "作成したキーペア名"
 }
