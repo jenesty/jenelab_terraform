@@ -1,7 +1,7 @@
 resource "template_file" "user_data_web" {
   template = "${file("vol2_web_userdata.tpl")}"
   vars {
-    wp_password = "${random_id.rds_password.b64}"
+    rds_password = "${random_id.rds_password.b64}"
     rds_endpoint = "${aws_db_instance.wordpress-rds-instance.address}"
   }
 }
