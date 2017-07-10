@@ -38,7 +38,7 @@ sudo cp -p wp-config-sample.php wp-config.php
 # wordpressの設定変更
 sudo sed -i -e 's/database_name_here/wordpress/' wp-config.php
 sudo sed -i -e 's/username_here/wordpress/' wp-config.php
-sudo sed -i -e 's/password_here/password/' wp-config.php
+sudo sed -i -e 's/password_here/${wp_password}/' wp-config.php
 sudo sed -i -e 's/localhost/wordpress.cic5wtmdlea0.ap-northeast-1.rds.amazonaws.com/' wp-config.php
 
 # Apacheの再起動

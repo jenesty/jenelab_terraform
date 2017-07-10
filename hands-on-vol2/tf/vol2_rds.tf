@@ -15,6 +15,7 @@ resource "aws_db_instance" "wordpress-instance" {
     backup_window = "03:00-03:30"
     apply_immediately = "true"
     auto_minor_version_upgrade = "true"
+    skip_final_snapshot     = true
 }
 
 output "rds_endpoint" {

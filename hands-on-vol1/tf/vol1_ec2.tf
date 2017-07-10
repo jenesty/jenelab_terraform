@@ -1,3 +1,10 @@
+resource "template_file" "user_data_web" {
+  template = "${file("vol1_web_userdata.tpl")}"
+  vars {
+    wp_password = "${random_id.rds_password.b64}"
+  }
+}
+
 resource "aws_instance" "Web" {
   depends_on = [
     "aws_vpc.hands-on-vpc"
@@ -10,7 +17,7 @@ resource "aws_instance" "Web" {
   ]
   key_name = "${var.key_pair}"
   subnet_id = "${element(aws_subnet.public.*.id, count.index % var.private_subnet_length)}"
-  user_data = "${file("vol1_web_userdata.sh")}"
+  user_data = "${template_file.user_data_web.rendered}"
   tags {
     Role = "Web"
     Env = "Development"
