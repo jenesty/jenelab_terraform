@@ -23,19 +23,13 @@ set -u
 ## 変数定義
 ROOT_DIR=.
 TMP_DIR=${ROOT_DIR}/_tmp
-APP_NAME_PRE=hands-on-vol
 
 ## 一時ディレクトリ作成
 mkdir -p ${TMP_DIR}
 rm -f ${TMP_DIR}/*
 
 ## 一時ディレクトリにtfファイルをcopy
-VOL_NUMBER=${APP_NAME: -1}
-while [ ${VOL_NUMBER} -gt 0 ]
-do
-  cp -p ${APP_NAME_PRE}${VOL_NUMBER}/tf/* ${TMP_DIR}
-  VOL_NUMBER=$(expr $VOL_NUMBER - 1)
-done
+cp -p ${APP_NAME}/tf/* ${TMP_DIR}
 
 cd ${TMP_DIR}
 
