@@ -1,4 +1,4 @@
-resource "aws_db_instance" "wordpress-instance" {
+resource "aws_db_instance" "wordpress-rds-instance" {
     identifier = "wordpress"
     allocated_storage = 10
     engine = "mariadb"
@@ -19,5 +19,5 @@ resource "aws_db_instance" "wordpress-instance" {
 }
 
 output "rds_endpoint" {
-    value = "${aws_db_instance.wordpress-instance.address}"
+    value = "${aws_db_instance.wordpress-rds-instance.address}"
 }
