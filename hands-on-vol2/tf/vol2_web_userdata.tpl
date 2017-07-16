@@ -24,15 +24,14 @@ sudo service httpd configtest
 sudo chkconfig httpd on
 
 # wordpressをダウンロードして、展開
-cd /var/www/html
+cd /tmp
 sudo wget http://ja.wordpress.org/latest-ja.tar.gz
 sudo tar zxvf latest-ja.tar.gz
+sudo cp -rp ./wordpress/* /var/www/html/
+sudo chown -R apache:apache /var/www/html/
 
-
-# ディレクトリ名をwpに変更し、ディレクトリのオーナーをapacheに変更
-sudo mv wordpress wp
-sudo chown -R apache:apache wp
-cd wp
+# wordpress設定ファイルをsampleからコピー
+cd /var/www/html
 sudo cp -p wp-config-sample.php wp-config.php
 
 # wordpressの設定変更
