@@ -48,7 +48,7 @@ $ tfenv use 0.9.4
 ```opt```ディレクトリにあるwrapperツールを使用して、```terraform```を実行します。
 
 ```
-例)handos-on-vol1を実行
+例)AWSハンズオンセミナー EC2・VPC・ELB編の環境をセットアップする
 $ cd /path/to/the/terraform_dir
 
 terraformのテスト実行
