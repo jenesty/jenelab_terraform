@@ -1,5 +1,5 @@
-resource "aws_security_group" "RDS-SG" {
-  name = "RDS-SG"
+resource "aws_security_group" "rds_security_group" {
+  name = "rds security group"
   vpc_id  = "${aws_vpc.hands-on-vpc.id}"
   ingress {
     protocol = "tcp"
@@ -7,7 +7,7 @@ resource "aws_security_group" "RDS-SG" {
     to_port = 3306
     cidr_blocks = ["10.0.0.0/16"]
     # cidr_blocks = [
-    #   "${aws_security_group.Web-SG.id}"
+    #   "${aws_security_group.web_security_group.id}"
     # ]
   }
   egress {

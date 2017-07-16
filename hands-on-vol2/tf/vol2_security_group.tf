@@ -1,5 +1,5 @@
-resource "aws_security_group" "Web-SG" {
-  name = "Web-SG"
+resource "aws_security_group" "web_security_group" {
+  name = "web security group"
   vpc_id  = "${aws_vpc.hands-on-vpc.id}"
   ingress {
     protocol = "tcp"
@@ -21,8 +21,8 @@ resource "aws_security_group" "Web-SG" {
   }
 }
 
-resource "aws_security_group" "ELB-SG" {
-  name = "ELB-SG"
+resource "aws_security_group" "elb_security_group" {
+  name = "elb security group"
   vpc_id  = "${aws_vpc.hands-on-vpc.id}"
   ingress {
     protocol = "tcp"

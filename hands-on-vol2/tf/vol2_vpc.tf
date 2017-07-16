@@ -28,7 +28,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = "${lookup(var.public_subnet_settings, "map_public_ip_on_launch")}"
   availability_zone = "${element(split(",", var.az_list), count.index)}"
   tags {
-    Name = "Public Subnet"
+    Name = "public subnet"
   }
 }
 
@@ -45,6 +45,6 @@ resource "aws_subnet" "private" {
   cidr_block = "${lookup(var.private_subnet_settings, "subnet_cidr_16")}.${count.index + 100}.0/24"
   availability_zone = "${element(split(",", var.az_list), count.index)}"
   tags {
-    Name = "DB Subnet"
+    Name = "private subnet"
   }
 }

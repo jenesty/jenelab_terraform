@@ -28,7 +28,7 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = "${lookup(var.public_subnet_settings, "map_public_ip_on_launch")}"
   availability_zone = "${element(split(",", var.az_list), count.index)}"
   tags {
-    Name = "Public Subnet"
+    Name = "public subnet"
   }
 }
 

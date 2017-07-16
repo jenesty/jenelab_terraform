@@ -1,5 +1,5 @@
-resource "aws_elb" "hands-on-ELB" {
-    name = "hands-on-ELB"
+resource "aws_elb" "hands-on-elb" {
+    name = "hands-on-elb"
     subnets = ["${aws_subnet.public.*.id}"]
     listener {
         instance_port = 80
@@ -11,15 +11,15 @@ resource "aws_elb" "hands-on-ELB" {
         healthy_threshold = 3
         unhealthy_threshold = 3
         timeout = 5
-        target = "HTTP:80/"
+        target = "HTTP:80/index.html"
         interval = 30
     }
     security_groups = [
-      "${aws_security_group.ELB-SG.id}"
+      "${aws_security_group.elb_security_group.id}"
     ]
 
     instances = [
-      "${aws_instance.Web.*.id}"
+      "${aws_instance.web.*.id}"
     ]
     cross_zone_load_balancing = true
     idle_timeout = 400
@@ -32,5 +32,5 @@ resource "aws_elb" "hands-on-ELB" {
 }
 
 output "elb.hostname" {
-  value = "${aws_elb.hands-on-ELB.dns_name}"
+  value = "${aws_elb.hands-on-elb.dns_name}"
 }
