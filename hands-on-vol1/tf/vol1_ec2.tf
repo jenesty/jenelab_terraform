@@ -18,7 +18,7 @@ resource "aws_instance" "web" {
   tags {
     Role = "Web"
     Env = "Development"
-    Name = "Web Server"
+    Name = "Webサーバ"
   }
 }
 
