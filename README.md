@@ -45,22 +45,6 @@ variable "key_pair" {
 }
 ```
 
-### terraform state 管理用 S3バケットの作成
-terraform でAWSの状態を保持するstateの格納先を変更します。
-デフォルトでは```hands-on-terraform-state```となっていますが、
-S3バケット名は世界でただ1つだけしか名前を付けられないため、
-ご自身で作成したS3バケット名に変更して頂く必要があります。
-```
-terraform {
-  backend "s3" {
-    bucket = "hands-on-terraform-state"
-    region = "ap-northeast-1"
-    key    = "terraform.tfstate"
-    #lock_table = "terraform-state-lock"
-  }
-}
-```
-
 ## 使用方法
 ```opt```ディレクトリにあるwrapperツールを使用して、```terraform```を実行します。
 ```
