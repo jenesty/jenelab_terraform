@@ -30,16 +30,7 @@ region = ap-northeast-1
 変数の設定は、hands-on-vol*/tf/配下にあるvariables.tfを変更します。
 以下の設定を実施しないとterraformが失敗します。"必ず"設定してください。
 ```
-# 起動したいAmazon Linuxで作成したAMIを指定
-variable "web_settings" {
-  type = "map"
-  default = {
-    ec2_count = "2" #起動するインスタンス数
-    ec2_type = "t2.micro" #起動するインスタンスタイプ
-    ami_id = "ここに設定する" #起動するAMI
-  }
-}
-# 事前にキーペア事前を作成し、指定
+# AWSのキーペアを指定します。事前にキーペアを作成し、指定してください。
 variable "key_pair" {
   default = "作成したキーペア名"
 }
