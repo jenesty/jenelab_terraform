@@ -27,7 +27,7 @@ region = ap-northeast-1
 ```
 
 ### varsの設定
-変数の設定は、hands-on-vol*/tf/配下にあるvariables.tfを変更します。
+変数の設定は、hands-on-vol*/tf/配下にあるvol*_vars.tfを変更します。
 以下の設定を実施しないとterraformが失敗します。"必ず"設定してください。
 ```
 # AWSのキーペアを指定します。事前にキーペアを作成し、指定してください。
