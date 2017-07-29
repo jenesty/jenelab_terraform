@@ -23,12 +23,14 @@ set -u
 ## 変数定義
 ROOT_DIR=.
 TMP_DIR=${ROOT_DIR}/_tmp
+COMMON_VARS=./common_vars/vars.tf
 
 ## 一時ディレクトリ作成
 mkdir -p ${TMP_DIR}
 rm -f ${TMP_DIR}/*
 
 ## 一時ディレクトリにtfファイルをcopy
+cp -p ${COMMON_VARS} ${TMP_DIR}
 cp -p ${APP_NAME}/tf/* ${TMP_DIR}
 
 cd ${TMP_DIR}
