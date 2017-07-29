@@ -1,3 +1,9 @@
+# キーペア名をdefaultに設定してください。
+variable "key_pair" {
+  default = "jenelab-hands-on"
+}
+
+# bucketにs3バケット名を設定してください。
 terraform {
   backend "s3" {
     bucket = "hands-on-terraform-state"

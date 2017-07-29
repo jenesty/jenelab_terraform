@@ -1,7 +1,3 @@
-variable "key_pair" {
-  default = "jenelab-hands-on"
-}
-
 #
 # vpc
 #
