@@ -3,6 +3,29 @@
 ```git clone```して使用してください。
 
 ## 事前準備
+### gitインストール
+#### Mac
+```
+$ brew install git
+$ git --version
+```
+
+#### Windows
+```
+https://git-for-windows.github.io/ よりインストーラをダウンロードして実行する。
+
+下記以外は基本的にNextの押下で良い。
+
+設定変更箇所：
+ - 「Adjusting your PATH environment」で「Use Git from the Windows Command Prompt」を選択
+ - 「Configuring the line ending conversions」で「Checkout as-is, commit as-is」を選択
+ - 「Configuring extra options」で「Enable file system caching」と「Enable Git Credential Manager」を選択
+
+インストール完了後コマンドプロンプトから以下のコマンドを実行し、バージョンが表示されればOK
+> git --version
+
+```
+
 ### IAMユーザの作成
 任意の名前でユーザを作成してください。設定は以下の通りです。
 * アクセスの種類：「プログラムによるアクセス」
@@ -47,16 +70,34 @@ variable "key_pair" {
 }
 ```
 
-## Terraformインストール(Mac)
-Terraform v0.9.4をインストールしてください。
+## Terraformインストール
+AWSハンズオンセミナーの環境構築ではTerraform v0.9.4をインストールしてください。
 バージョンが0.9.4でない場合、正常に動作しない可能性があります。
-インストールはtfenvというterraformのバージョンを管理できるツールがあります。
-terraformはバージョンアップが頻繁に行われるため、こちらを使用してterraformをインストールすると便利です。
+※もし0.9.4以外のバージョンをインストールしてしまった場合は0.9.4に切り替えて実行して下さい
+
+### Mac
+Macへのterraformインストールではtfenvというバージョン管理ツールを推奨します。
+terraformはバージョンアップが頻繁に行われるため、tfenvを使用してterraformをインストールすると
+使用しているバージョンを固定したり必要に応じて新しいバージョンへ切り替えられるため非常に便利です。
+
 ```
 $ brew install tfenv
 $ tfenv install 0.9.4
 $ tfenv use 0.9.4
+
+$ terraform version
+Terraform v0.9.4 と表示されればOK
 ```
+
+### Windows
+```
+https://www.terraform.io/downloads.html から`terraform_x.xx.x_windows_amd64.zip`をダウンロードし展開する。
+`C:\bin\`など任意のフォルダを作成し、terraform.exeを配置&PATHを通す。
+
+$ terraform version
+Terraform v0.9.4 と表示されればOK
+```
+
 
 ## 使用方法
 ```
