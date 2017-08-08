@@ -3,6 +3,25 @@
 ```git clone```して使用してください。
 
 ## 事前準備
+### IAMユーザの作成
+任意の名前でユーザを作成してください。設定は以下の通りです。
+* アクセスの種類：「プログラムによるアクセス」
+* アクセス権限：「既存のポリシーを直接アタッチ」
+* ポリシー名：「AdministratorAccess」
+
+### aws cliのインストール
+#### Mac
+```
+http://docs.aws.amazon.com/ja_jp/streams/latest/dev/kinesis-tutorial-cli-installation.html
+を参考にAWS CLIをインストールする。
+```
+
+#### Windows
+```
+http://docs.aws.amazon.com/ja_jp/cli/latest/userguide/awscli-install-windows.html
+からAWS CLI(MSIインストーラ)をダウンロードしインストール&PATHを通す。
+```
+
 ### gitインストール
 #### Mac
 ```
@@ -25,12 +44,6 @@ https://git-for-windows.github.io/ よりインストーラをダウンロード
 > git --version
 
 ```
-
-### IAMユーザの作成
-任意の名前でユーザを作成してください。設定は以下の通りです。
-* アクセスの種類：「プログラムによるアクセス」
-* アクセス権限：「既存のポリシーを直接アタッチ」
-* ポリシー名：「AdministratorAccess」
 
 ### クレデンシャル設定
 IAMユーザを作成すると、アクセスキー、シークレットキーが発行されます。
@@ -102,9 +115,13 @@ Terraform v0.9.4 と表示されればOK
 ## 使用方法
 ```
 例)AWSハンズオンセミナー EC2・VPC・ELB編の環境をセットアップする場合
+
 # terraformをgit cloneしたディレクトリに移動
 $ cd /path/to/the/terraform_dir
+```
 
+### Mac
+```
 # terraformのテスト実行
 $ ./opt/plan hands-on-vol1
 
@@ -113,6 +130,19 @@ $ ./opt/apply hands-on-vol1
 
 # terraformで作成したリソースの削除(作業完了後実行してください)
 $ ./opt/destroy hands-on-vol1
+```
+
+### Windows
+```
+# terraformのテスト実行
+$ ./opt/plan hands-on-vol1
+
+# terraformの適用(このコマンドでAWS上にリソースが作成されます)
+$ ./opt/apply hands-on-vol1
+
+# terraformで作成したリソースの削除(作業完了後実行してください)
+$ ./opt/destroy hands-on-vol1
+
 ```
 
 ## 注意
