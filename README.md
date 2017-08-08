@@ -135,13 +135,15 @@ $ ./opt/destroy hands-on-vol1
 ### Windows
 ```
 # terraformのテスト実行
-$ ./opt/plan hands-on-vol1
+> opt/plan_win hands-on-vol1
 
 # terraformの適用(このコマンドでAWS上にリソースが作成されます)
-$ ./opt/apply hands-on-vol1
+> opt/apply_win hands-on-vol1
 
 # terraformで作成したリソースの削除(作業完了後実行してください)
-$ ./opt/destroy hands-on-vol1
+> opt/destroy_win hands-on-vol1
+
+※destroy_winが上手く動かない場合は一旦[Ctrl]+[C]キーで終了して再実行して下さい。
 
 ```
 
