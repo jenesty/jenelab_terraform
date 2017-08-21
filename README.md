@@ -9,25 +9,6 @@
 * アクセス権限：「既存のポリシーを直接アタッチ」
 * ポリシー名：「AdministratorAccess」
 
-### aws cliのインストール
-#### Mac
-```
-http://docs.aws.amazon.com/ja_jp/streams/latest/dev/kinesis-tutorial-cli-installation.html
-を参考にAWS CLIをインストールする。
-```
-
-#### Windows
-```
-http://docs.aws.amazon.com/ja_jp/cli/latest/userguide/awscli-install-windows.html
-からAWS CLI(MSIインストーラ)をダウンロードしインストールする。
-
-MSIインストーラの場合、環境変数を編集せずともAWS CLIが使用できるようになるが、
-上手く動作しない場合は以下の手順を実施する。
-
-http://docs.aws.amazon.com/ja_jp/cli/latest/userguide/awscli-install-windows.html#awscli-install-windows-path
-
-```
-
 ### gitインストール
 #### Mac
 ```
