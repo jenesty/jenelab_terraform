@@ -31,11 +31,9 @@ variable "vpc_settings" {
 variable "public_subnet_length" {
   default = "2"
 }
-
 variable "az_list" {
     default = "ap-northeast-1a,ap-northeast-1c"
 }
-
 variable "public_subnet_settings" {
   type = "map"
   default = {
@@ -56,14 +54,12 @@ variable "web_settings" {
   }
 }
 
-
 #
 # subnet
 #
 variable "private_subnet_length" {
   default = "2"
 }
-
 variable "private_subnet_settings" {
   type = "map"
   default = {
@@ -106,7 +102,6 @@ variable "route53_zone" {
 variable "route53_zoneid" {
     default = "Z3HEA6RWGTOE56"
 }
-
 variable "route53_record" {
     default = "www.jenelab-hands-on.com"
 }
