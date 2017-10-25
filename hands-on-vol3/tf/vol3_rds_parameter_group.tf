@@ -1,5 +1,5 @@
-resource "aws_db_parameter_group" "wordpress" {
-  name   = "wordpress"
+resource "aws_db_parameter_group" "wordpress2" {
+  name   = "wordpress2"
   family = "mariadb10.0"
 
   parameter {

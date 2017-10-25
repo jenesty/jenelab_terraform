@@ -2,7 +2,7 @@ data "template_file" "user_data_web" {
   template = "${file("vol3_web_userdata.tpl")}"
   vars {
     rds_password = "${random_id.rds_password.b64}"
-    rds_endpoint = "${aws_db_instance.wordpress-rds-instance.address}"
+    rds_endpoint = "${aws_db_instance.wordpress2-rds-instance.address}"
   }
 }
 

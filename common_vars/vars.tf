@@ -48,7 +48,7 @@ variable "public_subnet_settings" {
 variable "web_settings" {
   type = "map"
   default = {
-    ec2_count = "2"
+    ec2_count = "1"
     ec2_type = "t2.micro"
     ami_id = "ami-e9dbd98e"
   }

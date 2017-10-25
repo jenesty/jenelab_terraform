@@ -1,5 +1,5 @@
-resource "aws_db_instance" "wordpress-rds-instance" {
-    identifier = "wordpress"
+resource "aws_db_instance" "wordpress2-rds-instance" {
+    identifier = "wordpress2"
     allocated_storage = 10
     engine = "mariadb"
     engine_version = "10.0.24"
@@ -7,9 +7,9 @@ resource "aws_db_instance" "wordpress-rds-instance" {
     name = "${lookup(var.rds_settings, "database_name")}"
     username = "${lookup(var.rds_settings, "db_username")}"
     password = "${random_id.rds_password.b64}"
-    db_subnet_group_name = "${aws_db_subnet_group.wordpress.name}"
+    db_subnet_group_name = "${aws_db_subnet_group.wordpress2.name}"
     vpc_security_group_ids = ["${aws_security_group.rds_security_group.id}"]
-    parameter_group_name = "${aws_db_parameter_group.wordpress.name}"
+    parameter_group_name = "${aws_db_parameter_group.wordpress2.name}"
     multi_az = "true"
     backup_retention_period = "1"
     backup_window = "03:00-03:30"
